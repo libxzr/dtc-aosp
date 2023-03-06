@@ -222,7 +222,7 @@ static void write_propval(FILE *f, struct property *prop)
 
 	fprintf(f, " = ");
 	if ((p[len-1] == '\0') && (nnotstring == 0) && (nnul < (len-nnul))
-	    && (nnotstringlbl == 0)) {
+	    && (nnotstringlbl == 0) && strcmp("qcom,gpu-freq", prop->name)) {
 		write_propval_string(f, prop->val);
 	} else if (((len % sizeof(cell_t)) == 0) && (nnotcelllbl == 0)) {
 		write_propval_cells(f, prop->val);
